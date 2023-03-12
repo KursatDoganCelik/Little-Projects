@@ -1,0 +1,28 @@
+.main-title{
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.btn{
+outline: none;
+font-size: 1.5rem;
+}
+.btn-edit{
+  color: rgb(14, 90, 14);
+}
+.btn-delete{
+  color: rgb(177, 34, 34);
+}
+
+.info{
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+  color: black;
+}
+.info-success{
+  border: 2px solid rgb(14, 90, 14);
+}
+.info-error{
+  border: 2px solid rgb(177, 34, 34);
+}
