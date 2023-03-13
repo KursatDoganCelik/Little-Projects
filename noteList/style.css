@@ -15,7 +15,7 @@ body{
     font-family: 'Roboto', sans-serif;
     background-image: linear-gradient(to bottom right, var(--main-color), var(--main-color-light));
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: calc(100vh - 8px);
 }
 
 .main-title{
@@ -63,7 +63,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem;
+    margin: 0.45rem;
     font-size: 1.2rem;
     background-color: #fff;
     transition: 0.3s ease-in-out;
