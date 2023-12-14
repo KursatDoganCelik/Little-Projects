@@ -1,0 +1,60 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --bcg: #E0E3EC;
+  --btn-bcg: #EEEEEE;
+  --operator: #539BCF;
+  --number: #141210;
+}
+body{
+  background-color: var(--bcg);
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-seri6;
+  display: grid;
+  place-items: center;
+}
+.container{
+  display: grid;
+  background-color: white;
+  gap: 1rem;
+  grid-template: 6vw repeat(5,6vw) / repeat(4,6vw);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.screen{
+  grid-column: 1 / -1;
+  font-size: 2rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+button{
+  background-color: var(--btn-bcg);
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+}
+.number{
+  color: var(--number);
+}
+.operator{
+  color: var(--operator);
+}
+
+/* Brakpoints in bootstrap */
+@media (max-width: 1200px) {
+  .container{grid-template: 8vw repeat(5,8vw) / repeat(4,8vw);}
+}
+@media (max-width: 992px) {
+  .container{grid-template: 9vw repeat(5,9vw) / repeat(4,9vw);}
+}
+@media (max-width: 768px) {
+  .container{grid-template: 12vw repeat(5,12vw) / repeat(4,12vw);}
+}
+@media (max-width: 576px){
+  .container{grid-template: minmax(60px, 16vw) repeat(5,minmax(60px, 16vw)) / repeat(4,minmax(60px, 16vw));}
+}
