@@ -20,17 +20,26 @@ body{
   display: grid;
   background-color: white;
   gap: 1rem;
-  grid-template: 6vw repeat(5,6vw) / repeat(4,6vw);
+  grid-template: 2vw 4vw repeat(5,6vw) / repeat(4,6vw);
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.screen{
+.buffer-screen{
   grid-column: 1 / -1;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  opacity: 0.5;
   display: flex;
   justify-content: end;
-  align-items: center;
+  align-items: end;
+
+}
+.screen{
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  display: flex;
+  justify-content: end;
+  align-items: start;
 }
 button{
   background-color: var(--btn-bcg);
@@ -47,14 +56,14 @@ button{
 
 /* Brakpoints in bootstrap */
 @media (max-width: 1200px) {
-  .container{grid-template: 8vw repeat(5,8vw) / repeat(4,8vw);}
+  .container{grid-template: calc(8vw/3) calc(8vw/3*2)  repeat(5,8vw) / repeat(4,8vw);}
 }
 @media (max-width: 992px) {
-  .container{grid-template: 9vw repeat(5,9vw) / repeat(4,9vw);}
+  .container{grid-template: 3vw 6vw repeat(5,9vw) / repeat(4,9vw);}
 }
 @media (max-width: 768px) {
-  .container{grid-template: 12vw repeat(5,12vw) / repeat(4,12vw);}
+  .container{grid-template: 4vw 8vw repeat(5,12vw) / repeat(4,12vw);}
 }
 @media (max-width: 576px){
-  .container{grid-template: minmax(60px, 16vw) repeat(5,minmax(60px, 16vw)) / repeat(4,minmax(60px, 16vw));}
+  .container{grid-template: minmax(30px, 5vw) minmax(60px, 10vw) repeat(5,minmax(60px, 15vw)) / repeat(4,minmax(60px, 15vw));}
 }
