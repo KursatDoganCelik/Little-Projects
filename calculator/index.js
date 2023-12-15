@@ -17,6 +17,8 @@ document.querySelector('body').addEventListener('keydown', function (e) {
     pressedKey = 'DEL'
   } else if ({ Enter: 1 }[pressedKey]) {
     pressedKey = '='
+  } else if ({ ',': 1 }[pressedKey]) {
+    pressedKey = '.'
   }
 
   //check type and send necessary function
