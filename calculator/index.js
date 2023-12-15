@@ -56,12 +56,15 @@ function clickListener(selectorName, length) {
 function numberClick(number) {
   let mainScreen = document.querySelector('.main-screen')
   let mainScreenValue = document.querySelector('.main-screen').innerHTML
+  let screenLength = mainScreenValue.length
 
   //check multiple '.' usage
   if (!mainScreenValue.includes('.') || number !== '.') {
-    if (mainScreenValue === '0' || mainScreenValue === '00') {
+    //check screen value is 0 or not
+    if ((mainScreenValue === '0' || mainScreenValue === '00') && number !== '.') {
       mainScreen.innerHTML = number
-    } else {
+    } //check screen length smaller than 20
+    else if (screenLength < 20) {
       mainScreen.innerHTML += number
     }
   }
