@@ -4,6 +4,39 @@ let numberBtnLength = document.querySelectorAll('.number').length
 clickListener('.operator', operatorBtnLength)
 clickListener('.number', numberBtnLength)
 
+//add listener for keyboard
+document.querySelector('body').addEventListener('keydown', function (e) {
+  pressedKey = e.key
+
+  //convert some operator
+  if ({ a: 1, A: 1, Escape: 1 }[pressedKey]) {
+    pressedKey = 'AC'
+  } else if ({ e: 1, E: 1, c: 1, C: 1 }[pressedKey]) {
+    pressedKey = 'CE'
+  } else if ({ Backspace: 1, Delete: 1 }[pressedKey]) {
+    pressedKey = 'DEL'
+  } else if ({ Enter: 1 }[pressedKey]) {
+    pressedKey = '='
+  }
+
+  //check type and send necessary function
+  let keyType = isNumberOrOperator(pressedKey)
+  if (keyType === 'number') {
+    numberClick(pressedKey)
+  } else if (keyType === 'operator') {
+    operatorClick(pressedKey)
+  }
+})
+
+//check number or operator
+function isNumberOrOperator(value) {
+  if ({ 0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, '.': 1 }[value]) {
+    return 'number'
+  } else if ({ AC: 1, CE: 1, DEL: 1, '/': 1, '*': 1, '-': 1, '+': 1, '=': 1 }[value]) {
+    return 'operator'
+  }
+}
+
 //add listener for click
 function clickListener(selectorName, length) {
   for (let index = 0; index < length; index++) {
