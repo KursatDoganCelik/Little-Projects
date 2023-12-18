@@ -7,6 +7,8 @@
   --bcg: #E0E3EC;
   --symbols: #539BCF;
   --symbol-size: 115px;
+  --line-width: 6px;
+  --line-gap: 40px;
 }
 body{
   background-color: var(--bcg);
@@ -40,6 +42,7 @@ body{
   padding: 1rem 2rem;
 }
 .symbol-box{
+  position: relative;
   display: grid;
   grid-template: repeat(3,var(--symbol-size)) / repeat(3,var(--symbol-size));
   grid-template-columns: 115px 115px 115px;
@@ -61,3 +64,80 @@ button:hover{
   background-color: var(--symbols);
   color: white;
 }
+/* Line Calculations Start */
+.line-horizontal-first{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc((115px / 2) - 2px);
+  left: calc(var(--line-gap) / 2);
+  height: var(--line-width);
+  width: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-horizontal-second{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc((360px / 2) - 2px);
+  left: calc(var(--line-gap)/2);
+  height: var(--line-width);
+  width: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-horizontal-third{
+  position: absolute;
+  background-color: var(--symbols);
+  bottom: calc((115px / 2) - 4px);
+  left: calc(var(--line-gap) / 2);
+  height: var(--line-width);
+  width: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-vertical-first{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc(var(--line-gap) / 2);
+  left: calc((115px / 2) - 2px);
+  width: var(--line-width);
+  height: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-vertical-second{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc(var(--line-gap)/2);
+  width: var(--line-width);
+  height: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-vertical-third{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc(var(--line-gap) / 2);
+  right: calc((115px / 2) - 2px);
+  width: var(--line-width);
+  height: calc(360px - var(--line-gap));
+  border-radius: 0.5rem;
+}
+.line-cross-positive{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc(var(--line-gap) - 10px);
+  left: calc(var(--line-gap) - 10px + 4px);
+  height: var(--line-width);
+  width: calc((360px * 1.4) - (2 * (var(--line-gap) - 10px) * 1.4));
+  border-radius: 0.5rem;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+.line-cross-negative{
+  position: absolute;
+  background-color: var(--symbols);
+  top: calc(var(--line-gap) - 10px);
+  right: calc(var(--line-gap) - 10px + 4px);
+  height: var(--line-width);
+  width: calc((360px * 1.4) - (2 * (var(--line-gap) - 10px) * 1.4));
+  border-radius: 0.5rem;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+/* Line Calculations End */
