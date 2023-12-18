@@ -33,6 +33,9 @@ body{
   border-radius: 0.5rem;
   font-size: 1.5rem;
 }
+.turn-box{
+  cursor: default;
+}
 .turn-reverse{
   background-color: var(--symbols);
   color: white;
