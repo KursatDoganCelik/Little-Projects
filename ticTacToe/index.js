@@ -98,7 +98,12 @@ function addWinLine(key, winner) {
 
   let turnX = document.querySelector('.turn-x')
   let turnO = document.querySelector('.turn-o')
-  let lineElement = document.querySelector('.symbol-box').lastElementChild
+
+  let lineDiv = document.createElement('div')
+  let symbolBox = document.querySelector('.symbol-box')
+
+  symbolBox.appendChild(lineDiv)
+  let lineElement = symbolBox.lastElementChild
   //add line according to case
   switch (key) {
     case 0:
@@ -151,18 +156,25 @@ function draw() {
 function listenAgainAndDefault() {
   let turnX = document.querySelector('.turn-x')
   let turnO = document.querySelector('.turn-o')
-  let lineElement = document.querySelector('.symbol-box').lastElementChild
   removeHover()
 
   let turnBox = document.querySelector('.turn-box')
   turnBox.addEventListener('click', function (e) {
     let isAgain = e.target.textContent
+
+    let symbolBox = document.querySelector('.symbol-box')
+    let lineElement = symbolBox.lastElementChild
+
     //all goes default if clicked
     if (isAgain === 'Again?') {
       symbolArray = ['', '', '', '', '', '', '', '', '']
       currentTurnX = true
       isWin = false
-      lineElement.classList = ''
+
+      //check element is div or btn
+      if (lineElement.textContent === '') {
+        lineElement.remove()
+      }
 
       turnX.classList.remove('turn-reverse')
       turnX.classList.add('turn-reverse')
