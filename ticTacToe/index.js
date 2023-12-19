@@ -152,6 +152,7 @@ function listenAgainAndDefault() {
   let turnX = document.querySelector('.turn-x')
   let turnO = document.querySelector('.turn-o')
   let lineElement = document.querySelector('.symbol-box').lastElementChild
+  removeHover()
 
   let turnBox = document.querySelector('.turn-box')
   turnBox.addEventListener('click', function (e) {
@@ -169,10 +170,24 @@ function listenAgainAndDefault() {
 
       turnX.textContent = "X's Turn"
       turnO.textContent = "O's Turn"
+
+      addHover()
       //empty the boxes
       for (let index = 0; index < 9; index++) {
         document.querySelectorAll('button')[index].textContent = ''
       }
     }
   })
+}
+
+function removeHover() {
+  for (let index = 0; index < 9; index++) {
+    document.querySelectorAll('button')[index].classList.add('reverse-btn-hover')
+  }
+}
+
+function addHover() {
+  for (let index = 0; index < 9; index++) {
+    document.querySelectorAll('button')[index].classList.remove('reverse-btn-hover')
+  }
 }
