@@ -68,6 +68,10 @@ button:hover{
   background-color: var(--symbols);
   color: white;
 }
+.reverse-btn-hover:hover{
+  background-color: white;
+  color: var(--symbols);
+}
 /* Line Calculations Start */
 .line-horizontal-first{
   position: absolute;
