@@ -1,0 +1,51 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --box-size: 180px;
+  --red: #EB5353;
+  --ligth-red: #FF6B6B;
+  --yellow: #F9D923;
+  --ligth-yellow: #FFD93D;
+  --green: #36AE7C;
+  --light-green: #6BCB77;
+  --blue: #187498;
+  --ligh-blue: #4D96FF;
+}
+body{
+/* bcg will add */
+}
+.container{
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+h1{
+  font-size: 3rem;
+  text-align: center;
+  padding: 2rem
+}
+.simon-box{
+display: grid;
+grid-template: repeat(2,var(--box-size)) / repeat(2,var(--box-size));
+gap: 15px;
+padding: 3rem;
+}
+.simon-box > div{
+  width: var(--box-size);
+  border-radius: 1rem;
+}
+.red{
+background-color: var(--red);
+}
+.green{
+  background-color: var(--green);
+}
+.blue{
+  background-color: var(--blue);
+}
+.yellow{
+  background-color: var(--yellow);
+}
