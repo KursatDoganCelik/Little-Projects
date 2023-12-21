@@ -61,37 +61,33 @@ function checkWin() {
 // Win calculations start
 function plusOneSequence() {
   for (let i = 0; i < 9; i += 3) {
-    if (symbolArray[i] === symbolArray[i + 1] && symbolArray[i + 1] !== '') {
-      if (symbolArray[i + 1] === symbolArray[i + 2]) {
-        addWinLine(i / 3, symbolArray[i])
-      }
+    if (checkEqualsAndEmpty(symbolArray[i], symbolArray[i + 1], symbolArray[i + 2])) {
+      addWinLine(i / 3, symbolArray[i])
     }
   }
 }
 function plusTwoSequence() {
-  if (symbolArray[2] === symbolArray[4] && symbolArray[4] !== '') {
-    if (symbolArray[4] === symbolArray[6]) {
-      addWinLine(7, symbolArray[2])
-    }
+  if (checkEqualsAndEmpty(symbolArray[2], symbolArray[4], symbolArray[6])) {
+    addWinLine(7, symbolArray[2])
   }
 }
 function plusThreeSequence() {
   for (let i = 0; i < 3; i++) {
-    if (symbolArray[i] === symbolArray[i + 3] && symbolArray[i + 3] !== '') {
-      if (symbolArray[i + 3] === symbolArray[i + 6]) {
-        addWinLine(i + 3, symbolArray[i])
-      }
+    if (checkEqualsAndEmpty(symbolArray[i], symbolArray[i + 3], symbolArray[i + 6])) {
+      addWinLine(i + 3, symbolArray[i])
     }
   }
 }
 function plusFourSequence() {
-  if (symbolArray[0] === symbolArray[4] && symbolArray[4] !== '') {
-    if (symbolArray[4] === symbolArray[8]) {
-      addWinLine(6, symbolArray[0])
-    }
+  if (checkEqualsAndEmpty(symbolArray[0], symbolArray[4], symbolArray[8])) {
+    addWinLine(6, symbolArray[0])
   }
 }
 // Win calculations end
+
+function checkEqualsAndEmpty(value1, value2, value3) {
+  return value1 === value2 && value2 == value3 && value2 !== ''
+}
 
 function addWinLine(key, winner) {
   isWin = true // We have winner!
