@@ -5,14 +5,14 @@
 }
 :root{
   --box-size: 210px;
-  --red: #EB5353;
-  --ligth-red: #FF6B6B;
-  --yellow: #F9D923;
-  --ligth-yellow: #FFD93D;
-  --green: #36AE7C;
-  --light-green: #6BCB77;
-  --blue: #187498;
-  --ligh-blue: #4D96FF;
+  --red: #F15022;
+  --shadow-red: #C33912;
+  --green: #7EBA00;
+  --shadow-green: #648C08;
+  --blue: #00A3EE;
+  --shadow-blue: #0986C0;
+  --yellow: #FFB901;
+  --shadow-yellow: #C28F02;
 }
 .container{
   display: grid;
@@ -33,22 +33,26 @@ h1{
 }
 .simon-box > button{
   width: var(--box-size);
-  border-radius: 1rem;
+  border-radius: 3px 3px 0 0 ;
   border: none;
   caret-color: transparent;
 }
 .red{
 background-color: var(--red);
+box-shadow: 0px 7px 2px 2px var(--shadow-red);
 }
 .green{
-  background-color: var(--light-green);
+  background-color: var(--green);
+  box-shadow: 0px 7px 2px 2px var(--shadow-green);
 }
 .blue{
-  background-color: var(--ligh-blue);
+  background-color: var(--blue);
+  box-shadow: 0px 7px 2px 2px var(--shadow-blue);
 }
 .yellow{
   background-color: var(--yellow);
+  box-shadow: 0px 7px 2px 2px var(--shadow-yellow);
 }
 .pressed {
-  box-shadow: 0 0 1rem gray;
+  box-shadow: 0px 4px 4px 0px gray;
 }
