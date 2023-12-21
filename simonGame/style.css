@@ -16,11 +16,16 @@
 }
 .container{
   display: grid;
+  place-items: center;
   place-content: center;
   height: 100vh;
+  background: rgb(255,251,245);
+  background: radial-gradient(circle, rgba(255,251,245,1) 70%, rgba(247,239,229,1) 100%);
 }
 h1{
-  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  color: #191919;
   text-align: center;
   padding: 2rem;
   caret-color: transparent;
