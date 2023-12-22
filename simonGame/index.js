@@ -1,13 +1,17 @@
 let simonArray = []
 let isStart = false
+let isListen = false
 
 //user press any key start to game
 document.addEventListener('keydown', function () {
   if (!isStart) {
-    addListenerSimonBoxes()
     createColorAndPush()
-
+    levelChange(1)
     isStart = true
+  }
+  if (!isListen) {
+    addListenerSimonBoxes()
+    isListen = true
   }
 })
 
@@ -32,20 +36,22 @@ function createColorAndPush() {
 
 let counter = 0
 function checkColor(color) {
-  //current level
-  if (counter < simonArray.length) {
-    //true pick
-    if (simonArray[counter] === color) {
-      counter++
-    }
-    //wrong pick
-    else {
-      //
+  //true color pick
+  if (color === simonArray[counter]) {
+    counter++
+    //pass the level
+    if (counter === simonArray.length) {
+      createColorAndPush()
+      levelChange(counter + 1)
+      counter = 0
     }
   }
-  //pass the level
+  //wrong color pick
   else {
-    //
+    simonArray = []
+    counter = 0
+    levelChange(counter)
+    isStart = false
   }
 }
 
@@ -76,12 +82,21 @@ function pressAnimate(index) {
 function levelAnimate() {
   for (let index = 0; index < simonArray.length; index++) {
     for (let i = 0; i < 4; i++) {
-      let buttonColor = document.querySelectorAll('button')[i].classList.value
+      let buttonColor = document.querySelectorAll('button')[i].classList[0]
       if (simonArray[index] === buttonColor) {
         setTimeout(() => {
           pressAnimate(i)
-        }, 500 * index)
+        }, 500 * (index + 1))
       }
     }
+  }
+}
+
+function levelChange(level) {
+  let title = document.querySelector('h1')
+  if (level !== 0) {
+    title.textContent = 'Level ' + level
+  } else {
+    title.textContent = 'Game Over'
   }
 }
