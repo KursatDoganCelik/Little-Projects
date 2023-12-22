@@ -1,4 +1,4 @@
-let simonArray = ['red', 'green', 'blue', 'red']
+let simonArray = []
 let isStart = false
 
 //user press any key start to game
@@ -11,6 +11,17 @@ document.addEventListener('keydown', function () {
   }
 })
 
+//add listener for boxes
+function addListenerSimonBoxes() {
+  for (let index = 0; index < 4; index++) {
+    document.querySelectorAll('button')[index].addEventListener('click', function () {
+      let clickedColor = this.classList[0]
+      pressAnimate(index)
+      checkColor(clickedColor)
+    })
+  }
+}
+
 //create new color and push simon array
 function createColorAndPush() {
   let randomColorNumber = Math.floor(Math.random() * 4)
@@ -19,12 +30,22 @@ function createColorAndPush() {
   levelAnimate()
 }
 
-//add listener for boxes
-function addListenerSimonBoxes() {
-  for (let index = 0; index < 4; index++) {
-    document.querySelectorAll('button')[index].addEventListener('click', function () {
-      pressAnimate(index)
-    })
+let counter = 0
+function checkColor(color) {
+  //current level
+  if (counter < simonArray.length) {
+    //true pick
+    if (simonArray[counter] === color) {
+      counter++
+    }
+    //wrong pick
+    else {
+      //
+    }
+  }
+  //pass the level
+  else {
+    //
   }
 }
 
