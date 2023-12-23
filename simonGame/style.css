@@ -5,6 +5,7 @@
 }
 :root{
   --box-size: 210px;
+  --box-size-small: 150px;
   --red: #F15022;
   --shadow-red: #C33912;
   --green: #7EBA00;
@@ -13,28 +14,29 @@
   --shadow-blue: #0986C0;
   --yellow: #FFB901;
   --shadow-yellow: #C28F02;
+  --gray: #B2A59B;
+}
+body{
+  background: rgb(255,251,245);
+  background: radial-gradient(circle, rgba(255,251,245,1) 70%, rgba(247,239,229,1) 100%);
 }
 .container{
   display: grid;
   place-items: center;
-  place-content: center;
-  height: 100vh;
-  background: rgb(255,251,245);
-  background: radial-gradient(circle, rgba(255,251,245,1) 70%, rgba(247,239,229,1) 100%);
 }
 h1{
   font-family: 'Poppins', sans-serif;
   font-size: 3.5rem;
   color: #191919;
   text-align: center;
-  padding: 2rem;
+  padding: 4rem;
   caret-color: transparent;
 }
 .simon-box{
   display: grid;
   grid-template: repeat(2,var(--box-size)) / repeat(2,var(--box-size));
   gap: 25px;
-  padding: 3rem;
+  padding: 0 2.5rem;
 }
 .simon-box > button{
   width: var(--box-size);
@@ -59,5 +61,20 @@ box-shadow: 0px 7px 2px 2px var(--shadow-red);
   box-shadow: 0px 7px 2px 2px var(--shadow-yellow);
 }
 .pressed {
-  box-shadow: 0px 4px 4px 0px gray;
+  box-shadow: 0px 4px 4px 0px var(--gray);
+}
+/* Brakpoints for phones */
+@media (max-width: 576px){
+  h1{
+    font-size: 3rem;
+    padding: 4rem 2rem;
+  }
+  .simon-box{
+    grid-template: repeat(2,var(--box-size-small)) / repeat(2,var(--box-size-small));
+    gap: 15px;
+    padding: 0 2.5rem;
+  }
+  .simon-box > button{
+    width: var(--box-size-small);
+  }
 }
