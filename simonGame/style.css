@@ -17,6 +17,7 @@
   --gray: #B2A59B;
 }
 body{
+  height: 100vh;
   background: rgb(255,251,245);
   background: radial-gradient(circle, rgba(255,251,245,1) 70%, rgba(247,239,229,1) 100%);
 }
@@ -62,6 +63,10 @@ box-shadow: 0px 7px 2px 2px var(--shadow-red);
 }
 .pressed {
   box-shadow: 0px 4px 4px 0px var(--gray);
+}
+.wrong{
+  background: rgb(238,237,237);
+  background: radial-gradient(circle, rgba(238,237,237,1) 35%, rgba(215,19,19,0.25) 90%);
 }
 /* Brakpoints for phones */
 @media (max-width: 576px){
