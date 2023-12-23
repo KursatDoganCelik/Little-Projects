@@ -39,8 +39,10 @@ function checkColor(color) {
     counter++
     //pass the level
     if (counter === simonArray.length) {
-      createColorAndPush()
       levelChange(counter + 1)
+      setTimeout(() => {
+        createColorAndPush()
+      }, 500)
       counter = 0
     }
   }
@@ -50,6 +52,8 @@ function checkColor(color) {
     counter = 0
     levelChange(counter)
     isStart = false
+    playButton(4) //wrong sound
+    gameOverBcg()
   }
 }
 
@@ -64,11 +68,14 @@ function convertNumberToColor(value) {
       return 'blue'
     case 3:
       return 'yellow'
+    default:
+      return 'wrong'
   }
 }
 
 //press animation
 function pressAnimate(index) {
+  playButton(index)
   let button = document.querySelectorAll('button')[index]
   button.classList.add('pressed')
   setTimeout(() => {
@@ -84,7 +91,7 @@ function levelAnimate() {
       if (simonArray[index] === buttonColor) {
         setTimeout(() => {
           pressAnimate(i)
-        }, 500 * (index + 1))
+        }, 400 * (index + 1))
       }
     }
   }
@@ -100,4 +107,19 @@ function levelChange(level) {
       title.textContent = 'Press Any Key To Start'
     }, 750)
   }
+}
+
+function playButton(number) {
+  let color = convertNumberToColor(number)
+  let soundFile = `sounds/${color}.mp3`
+  let sound = new Audio(soundFile)
+  sound.play()
+}
+
+function gameOverBcg() {
+  let bcg = document.querySelector('body')
+  bcg.classList.add('wrong')
+  setTimeout(() => {
+    bcg.classList.remove('wrong')
+  }, 350)
 }
