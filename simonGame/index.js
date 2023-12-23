@@ -1,6 +1,6 @@
 let simonArray = []
 let isStart = false
-let isListen = false
+addListenerSimonBoxes()
 
 //user press any key start to game
 document.addEventListener('keydown', function () {
@@ -9,19 +9,17 @@ document.addEventListener('keydown', function () {
     levelChange(1)
     isStart = true
   }
-  if (!isListen) {
-    addListenerSimonBoxes()
-    isListen = true
-  }
 })
 
 //add listener for boxes
 function addListenerSimonBoxes() {
   for (let index = 0; index < 4; index++) {
     document.querySelectorAll('button')[index].addEventListener('click', function () {
-      let clickedColor = this.classList[0]
-      pressAnimate(index)
-      checkColor(clickedColor)
+      if (simonArray.length !== 0) {
+        let clickedColor = this.classList[0]
+        pressAnimate(index)
+        checkColor(clickedColor)
+      }
     })
   }
 }
@@ -98,5 +96,8 @@ function levelChange(level) {
     title.textContent = 'Level ' + level
   } else {
     title.textContent = 'Game Over'
+    setTimeout(() => {
+      title.textContent = 'Press Any Key To Start'
+    }, 750)
   }
 }
